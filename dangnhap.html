@@ -1,21 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US" dir="ltr">
+
 <head>
-	<title>Đăng nhập</title>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Trung tâm gia sư FOR EDUCAION</title>
+  
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
     <link rel="stylesheet" type="text/css" href="/assets/css/dndk.css" media="screen">
 </head>
 <body>
+  <script type = "text/javascript">
+		function checkdn() {
+		var u = document.getElementById("phone").value;
+		var p = document.getElementById("pass").value;
+		var ktra = true;
+		
+		if(u== "") {
+		ktra = false;
+		document.getElementById("sdt").innerHTML="Số điện thoại để trống hoặc sai!";
+		}
+		if(p == "") {
+		ktra = false;
+		document.getElementById("mk").innerHTML="Mật khẩu để trống hoặc sai!";
+		}
+
+		return ktra;
+		}
+	</script>
+
 	<div id="table1">
-        <form id="form" action="" >
+        <form id="form" action="xulydn.php" method="POST" enctype="multipart/form-data" onsubmit="return checkdn()" >
             <div class="container">
-              <h1><center>Đăng Nhập</center></h1>
+              <h1><center>Đăng nhập</center></h1>
               <hr>
 
-              <input type="text" placeholder="Nhập Số Điện Thoại" name="sdt" required>
-
-              <input type="password" placeholder="Nhập Mật Khẩu" name="psw" required>
-
+              <label for="phone"><b>Số điện thoại</b></label>
+              <input id="phone" type="text" placeholder="Nhập số điện thoại" name="phone" >
+              <p class="mau" id="sdt"></p>
+          
+              <label for="pass"><b>Mật Khẩu</b></label>
+              <input id="pass" type="password" placeholder="Nhập Mật Khẩu" name="pass" >
+              <p class="mau" id="mk"></p>
+          
               <div class="clearfix">
                 <button type="submit" class="signupbtn">Đăng nhập</button>
               </div>

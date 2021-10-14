@@ -1,27 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US" dir="ltr">
+
 <head>
-	<title>Đăng ký tài khoản</title>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Trung tâm gia sư FOR EDUCAION</title>
+  
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+
     <link rel="stylesheet" type="text/css" href="/assets/css/dndk.css" media="screen">
 </head>
 <body>
+  <!-- Nhúng file JavaScript -->
+	<script type = "text/javascript">
+		function checkdk() {
+		var u = document.getElementById("phone").value;
+		var p1 = document.getElementById("pass").value;
+		var p2 = document.getElementById("passwd").value;
+		var ktra = true;
+		if(u== ''  ) {
+			document.getElementById("sdt").innerHTML="Vui lòng nhập số điện thoại!";
+			ktra = false;
+		}
+		if(p1 == '') {
+			document.getElementById("mk").innerHTML="Vui lòng nhập mật khẩu!";
+			ktra = false;
+		}
+		if(p2 == '') {
+			document.getElementById("mk2").innerHTML="Vui lòng xác minh mật khẩu!";
+			ktra = false;
+		}
+		if(p1!=p2){
+			alert("Mật khẩu không khớp!");
+			ktra=false;
+		}
+		
+		return ktra;
+		}
+	</script> 
+  
+
 	<div id="table1">
-        <form id="form" action="" >
+        <form action="xulydk.php" method="POST" enctype="multipart/form-data" onsubmit="return checkdk()" >
             <div class="container">
-              <h1><center>Đăng Ký</center></h1>
+              <h1><center>Đăng ký tài khoản</center></h1>
               <hr>
-              <input type="text" placeholder="Nhập Họ Tên" name="hoten" required>
+              <label for="phone"><b>Số điện thoại</b></label>
+              <input id="phone" type="text" placeholder="Nhập số điện thoại" name="phone" >
+              <p class="mau" id="sdt"></p>
 
-              <input type="text" placeholder="Nhập Số Điện Thoại" name="sdt" required>
-
-              <input type="password" placeholder="Nhập Mật Khẩu" name="psw" required>
+              <label for="pass"><b>Mật Khẩu</b></label>
+              <input id="pass" type="password" placeholder="Nhập Mật Khẩu" name="pass" >
+              <p class="mau" id="mk"></p>
           
-              <input type="password" placeholder="Nhập Lại Mật Khẩu" name="psw-repeat" required>
-
-              <input type="text" placeholder="Nhập Email" name="email" required>
-
-              <input type="text" placeholder="Nhập Địa Chỉ" name="diachi" required>
+              <label for="passwd"><b>Nhập Lại Mật Khẩu</b></label>
+              <input id="passwd" type="password" placeholder="Nhập Lại Mật Khẩu" name="passwd">
+              <p class="mau" id="mk2"></p>
           
               <div class="clearfix">
                 <button type="submit" class="signupbtn">Đăng ký</button>
