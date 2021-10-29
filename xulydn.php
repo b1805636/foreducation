@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (($_POST["phone"] !='') && ($_POST["pass"] !='')){
 	$sodienthoai=$_POST['phone'];
 	$passwd=$_POST['pass'];
@@ -17,16 +16,14 @@ if (($_POST["phone"] !='') && ($_POST["pass"] !='')){
 		FROM
 			khachhang
 		WHERE
-			sd_kh='".$sodienthoai."' AND
+			sdt_kh='".$sodienthoai."' AND
 			pass_kh='".$matkhau."'";
 		//echo $sql;
 		$result=$con->query($sql);
-		$_SESSION['phone'] = $sodienthoai;
-		if ($result->num_rows==1){
-			
+		if ($result->num_rows == 1){
 			setcookie('phone', $sodienthoai, time()+3600);
 			setcookie('pass', $matkhau, time()+3600);
-			//header("location: thongtincanhan_js.php");
+			header("location: home.php");
 		} else{
 			header("location: dangnhap.html");
 		}

@@ -12,61 +12,34 @@
     <link rel="stylesheet" type="text/css" href="assets/css/dndk.css" media="screen">
 </head>
 <body>
-  <!-- Nhúng file JavaScript -->
-	<script type = "text/javascript">
-		function checkdk() {
-		var u = document.getElementById("phone").value;
-		var p1 = document.getElementById("pass").value;
-		var p2 = document.getElementById("passwd").value;
-		var ktra = true;
-		if(u== ''  ) {
-			document.getElementById("sdt").innerHTML="Vui lòng nhập số điện thoại!";
-			ktra = false;
-		}
-		if(p1 == '') {
-			document.getElementById("mk").innerHTML="Vui lòng nhập mật khẩu!";
-			ktra = false;
-		}
-		if(p2 == '') {
-			document.getElementById("mk2").innerHTML="Vui lòng xác minh mật khẩu!";
-			ktra = false;
-		}
-		if(p1!=p2){
-			alert("Mật khẩu không khớp!");
-			ktra=false;
-		}
-		
-		return ktra;
-		}
-	</script> 
-  
 
 	<div id="table1">
-        <form action="xulydk.php" method="POST" enctype="multipart/form-data" onsubmit="return checkdk()" >
+        <form action="xulydk.php" method="POST" enctype="multipart/form-data">
             <div class="container">
               <h1><center>Đăng ký tài khoản</center></h1>
               <hr>
               <label for="phone"><b>Số điện thoại</b></label>
               <input id="phone" type="text" placeholder="Nhập số điện thoại" name="phone" >
-              <p class="mau" id="sdt"></p>
+              
 
               <label for="pass"><b>Mật Khẩu</b></label>
               <input id="pass" type="password" placeholder="Nhập Mật Khẩu" name="pass" >
-              <p class="mau" id="mk"></p>
+              
           
               <label for="passwd"><b>Nhập Lại Mật Khẩu</b></label>
               <input id="passwd" type="password" placeholder="Nhập Lại Mật Khẩu" name="passwd">
-              <p class="mau" id="mk2"></p>
-          
+                
+            
               <div class="clearfix">
                 <button type="submit" class="signupbtn">Đăng ký</button>
               </div>
-               
+                             
               <div>
                <button class="signupbtn" onclick="location.href='index.html'" type="button">Thoát</button>
               </div>
             </div>
           </form>
 	</div>
+
 </body>
 </html>
